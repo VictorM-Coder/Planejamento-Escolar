@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grade extends Manager implements Editable<Subject>{
-    private List<Subject> subjects;
+    private List<Subject> itens;
 
     public Grade(){
-        this.subjects = new ArrayList<Subject>();
+        this.itens = new ArrayList<Subject>();
     }
 
     public Grade(List<Subject> subjects){
         this();
-        this.subjects.addAll(subjects);
-        order(this.subjects);
+        this.itens.addAll(subjects);
+        order(this.itens);
     }
 
     /**
@@ -45,13 +45,13 @@ public class Grade extends Manager implements Editable<Subject>{
      */
     @Override
     public void add(Subject subject) {
-        this.subjects.add(subject);
-        order(this.subjects);
+        this.itens.add(subject);
+        order(this.itens);
     }
 
     @Override
     public void remove(Subject subject) {
-        this.subjects.remove(subject);
+        this.itens.remove(subject);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class Grade extends Manager implements Editable<Subject>{
      */
     private String listSubjectsByName(){
         String out = "";
-        for (Subject subject: this.subjects){
+        for (Subject subject: this.itens){
             out += subject.getName() + "\n";
         }
 
@@ -83,7 +83,7 @@ public class Grade extends Manager implements Editable<Subject>{
 
     private String subjectsToString(){
         String out = "";
-        for (Subject subject: this.subjects){
+        for (Subject subject: this.itens){
             out += subject + "\n";
         }
 
