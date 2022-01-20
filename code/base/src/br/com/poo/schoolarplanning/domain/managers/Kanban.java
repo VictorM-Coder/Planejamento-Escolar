@@ -33,11 +33,6 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     @Override
-    protected void order() {
-
-    }
-
-    @Override
     protected int FindItemIndexByName(String name) {
         return 0;
     }
