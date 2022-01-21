@@ -63,7 +63,7 @@ public class Activity implements Comparable<Activity>{
         return Integer.compare(daysDifference, 0);
     }
 
-    public String getName() { return name; }
+    public String getName(){ return name; }
 
     public KanbanStage getStage(){
         return this.stage;
