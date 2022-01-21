@@ -40,10 +40,10 @@ public class Main {
                   Menus.menuMateria();
                   break;
                 case "remove":
-                  grade.remove(grade.getSubjects().get(grade.findItemIndexByName(ui[1])));
+                  grade.remove(grade.getSubjects().get(grade.FindItemIndexByName(ui[1])));
                 case "update":
                   materia = new Subject(ui[1], ui[2], ui[3]);
-                  grade.update(grade.getSubjects().get(grade.findItemIndexByName(ui[1])), materia);
+                  grade.update(grade.getSubjects().get(grade.FindItemIndexByName(ui[1])), materia);
                   break;
               }
 
