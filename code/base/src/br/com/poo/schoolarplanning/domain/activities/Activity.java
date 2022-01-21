@@ -4,8 +4,9 @@ import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.subjects.Subject;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-public class Activity {
+public class Activity implements Comparable<Activity>{
 
     private String name;
     private String description;
@@ -37,20 +38,38 @@ public class Activity {
                 '}';
     }
 
+    /**
+     * calculate the number of days from today to the deadline
+     * @return the number of days from today to the deadline.
+     * if today is equals to the deadline returns 0.
+     * if date passed returns a negative value
+     */
     public int daysUntilDeadLine(){
-        //usar esse método para o Comparable
-        return 0;
+        return ((int) LocalDate.now().until(this.deadLine, ChronoUnit.DAYS));
     }
 
-    public String getName() { return name; }
-
+    /**
+     * change the phase to DOING
+     */
     public void doActivity(){
         this.stage = KanbanStage.DOING;
     }
 
+    /**
+     * change the phase to DONE
+     */
     public void doneActivity(){
         this.stage = KanbanStage.DONE;
     }
+
+    @Override
+    public int compareTo(Activity activity) {
+        int daysDifference = this.daysUntilDeadLine() - activity.daysUntilDeadLine();
+
+        return Integer.compare(daysDifference, 0);
+    }
+
+    public String getName() { return name; }
 
     public KanbanStage getStage(){
         return this.stage;
