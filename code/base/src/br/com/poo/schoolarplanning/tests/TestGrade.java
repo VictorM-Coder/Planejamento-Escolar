@@ -22,9 +22,9 @@ public class TestGrade {
         System.out.println(grade);
 
         System.out.println("-----------------");
-        grade.remove(subject5);
+       // grade.remove(subject5);
         Subject subject = new Subject("Discreta", "Araruna", "matematica discreta e suas aplicacoes");
-        grade.update(subject3, subject);
+        //grade.update(subject3, subject);
         System.out.println(grade.describeSubjects());
 
     }

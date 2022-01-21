@@ -16,8 +16,7 @@ public class Activity implements Comparable<Activity>{
     private KanbanStage stage;
 
 
-    public Activity( String name, String description,
-                     LocalDate startData, LocalDate deadLine, Subject subject){
+    public Activity( String name, String description, LocalDate startData, LocalDate deadLine, Subject subject){
         this.name = name;
         this.description = description;
         this.startDate = startData;
@@ -28,14 +27,9 @@ public class Activity implements Comparable<Activity>{
 
     @Override
     public String toString() {
-        return "Activity{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", startDate=" + startDate +
-                ", deadLine=" + deadLine +
-                ", subject=" + subject +
-                ", stage=" + stage +
-                '}';
+        return "Activity: " + this.name + "Phase: " + this.stage +
+                "\nStart Date: " + this.startDate + " DeadLine: " + this.deadLine +
+                "\nDescription: " + this.description;
     }
 
     /**
@@ -75,3 +69,4 @@ public class Activity implements Comparable<Activity>{
         return this.stage;
     }
 }
+

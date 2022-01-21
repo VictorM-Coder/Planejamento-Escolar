@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grade extends Manager implements Editable<Subject>{
-    private List<Subject> itens;
+    private List<Subject> subjects;
 
     public Grade(){
-        this.itens = new ArrayList<Subject>();
+        this.subjects = new ArrayList<Subject>();
     }
 
     public Grade(List<Subject> subjects){
         this();
-        this.itens.addAll(subjects);
-        order(this.itens);
+        this.subjects.addAll(subjects);
+        order(this.subjects);
     }
 
     /**
@@ -36,7 +36,7 @@ public class Grade extends Manager implements Editable<Subject>{
      * GRADE: name1 teacher1 description1, name2 teacher2 description2,...
      */
     public String describeSubjects(){
-        return "GRADE:\n" + this.subjectsToString();
+        return "GRADE:\n" + listToString(this.subjects);
     }
 
     /**
@@ -45,26 +45,31 @@ public class Grade extends Manager implements Editable<Subject>{
      */
     @Override
     public void add(Subject subject) {
-        this.itens.add(subject);
-        order(this.itens);
+        this.subjects.add(subject);
+        order(this.subjects);
     }
 
     @Override
-    public void remove(Subject subject) {
-        this.itens.remove(subject);
+    public void remove(Subject subject){
+        this.subjects.remove(subject);
     }
 
     @Override
-    public void update(Subject oldE, Subject newE) {
+    public void removeByName(String name) throws ManagerExceptions{
+        this.remove(this.subjects.get(this.findItemIndexByName(name)));
+    }
+
+    @Override
+    public void update(Subject oldE, Subject newE){
         this.remove(oldE);
         this.add(newE);
     }
 
     @Override
-    public int FindItemIndexByName(String name) {
-        for (Subject subject : itens) {
+    public int findItemIndexByName(String name) throws ManagerExceptions{
+        for (Subject subject : subjects) {
             if( subject.getName().equals(name)){
-                return itens.indexOf(subject);
+                return subjects.indexOf(subject);
             }
         }
         throw new ManagerExceptions("Materia nao encontrada");
@@ -79,23 +84,14 @@ public class Grade extends Manager implements Editable<Subject>{
      */
     private String listSubjectsByName(){
         String out = "";
-        for (Subject subject: this.itens){
+        for (Subject subject: this.subjects){
             out += subject.getName() + "\n";
         }
 
         return out;
     }
 
-    private String subjectsToString(){
-        String out = "";
-        for (Subject subject: this.itens){
-            out += subject + "\n";
-        }
-
-        return out;
-    }
-
     public List<Subject> getSubjects(){
-        return itens;
+        return subjects;
     }
 }

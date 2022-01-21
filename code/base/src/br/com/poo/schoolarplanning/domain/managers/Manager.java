@@ -1,5 +1,8 @@
 package br.com.poo.schoolarplanning.domain.managers;
 
+import br.com.poo.schoolarplanning.domain.subjects.Subject;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,5 +16,13 @@ public abstract class Manager{
     }
 
 
-    protected abstract int FindItemIndexByName(String name);
+    protected abstract int findItemIndexByName(String name) throws ManagerExceptions;
+
+    protected static String listToString(List list){
+        String out = "";
+        for (Object object: list){
+            out += object.toString() + "\n";
+        }
+        return out;
+    }
 }
