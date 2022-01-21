@@ -2,7 +2,7 @@ package br.com.poo.schoolarplanning.domain.managers;
 
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
-import br.com.poo.schoolarplanning.domain.subjects.Subject;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,26 @@ public class Kanban extends Manager implements Editable<Activity>{
     @Override
     public String toString(){
         return "Kanban(All Activies):\n" + this.simpleListActivities(); 
+    }
+
+    public String toStringToByPhase( ){
+        String out = "";
+        
+        System.out.println("TO DO");
+        for (Activity activity : getActivitiesByPhase( KanbanStage.TO_DO)) {
+            System.out.println("\t"+activity+"\n");
+        }
+
+        System.out.println("TO DOING");
+        for (Activity activity : getActivitiesByPhase(KanbanStage.DOING)) {
+            System.out.println("\t"+activity+"\n");
+        }
+
+        System.out.println("TO DONE");
+        for (Activity activity : getActivitiesByPhase(KanbanStage.DONE)) {
+            System.out.println("\t"+activity+"\n");
+        }
+        return out;
     }
 
     public void doActivity(Activity activity){

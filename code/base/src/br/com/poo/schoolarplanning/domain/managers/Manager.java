@@ -1,8 +1,4 @@
 package br.com.poo.schoolarplanning.domain.managers;
-
-import br.com.poo.schoolarplanning.domain.subjects.Subject;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

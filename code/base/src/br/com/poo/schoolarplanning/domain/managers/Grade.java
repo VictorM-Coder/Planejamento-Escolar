@@ -28,7 +28,7 @@ public class Grade extends Manager implements Editable<Subject>{
      */
     @Override
     public String toString(){
-        return "GRADE:\n" + this.listSubjectsByName();
+        return "GRADE:\n" + this.listSubjectsByName() + "\n--------------\n";
     }
 
     /**

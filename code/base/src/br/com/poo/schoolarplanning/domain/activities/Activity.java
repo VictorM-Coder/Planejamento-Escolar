@@ -27,9 +27,9 @@ public class Activity implements Comparable<Activity>{
 
     @Override
     public String toString() {
-        return "Activity: " + this.name + "Phase: " + this.stage +
-                "\nStart Date: " + this.startDate + " DeadLine: " + this.deadLine +
-                "\nDescription: " + this.description;
+        return "Activity: " + this.name + " Phase: " + this.stage +
+                "|\n\tStart Date: " + this.startDate + " DeadLine: " + this.deadLine +
+                "|\n\tDescription: " + this.description;
     }
 
     /**

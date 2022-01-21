@@ -41,7 +41,7 @@ public class Main {
                   Menus.menuMateria();
                   break;
                 case "remove":
-                  grade.removeByName(ui[0]);;
+                  grade.removeByName(ui[1]);;
                 case "update":
                   break;
                 case "exit":
@@ -50,11 +50,11 @@ public class Main {
               }
             }
         } else if( Opcao == 2){
-          while( true ) {
+
             while ( true ) {
               String Opcao2 = leitor.nextLine();
               String ui[] = Opcao2.split("  ");
-              Menus.menuMateria();
+              Menus.menuAtiv();
   
                 switch (ui[0]) {
                   case "add":
@@ -63,20 +63,25 @@ public class Main {
                     break;
                   case "show":
                     System.out.print(kanban);
-                    Menus.menuMateria();
+                    Menus.menuAtiv();
                     break;
                   case "remove":
-                    grade.removeByName(ui[0]);;
+                    kanban.removeByName(ui[1]);;
                   case "update":
+                    break;
+                  case "kanban":
+                    System.out.println(kanban.toStringToByPhase());
+                    Menus.menuAtiv();
                     break;
                   case "exit":
                   throw new ManagerExceptions("");
   
                 }
               }
-          }
-        }
-    } catch ( Exception e ){ System.out.println(e.getMessage()); } 
+          
+        } else { throw new ManagerExceptions("Opcao Invalida"); }
+    } catch ( Exception e ){ 
+      System.out.println(e.getMessage()); } 
   } 
   }
 }
