@@ -13,4 +13,10 @@ public class  Menus {
       System.out.println("---------------------------------");
     }
 
+    public static void menuAtiv(){
+      System.out.println("---------------------------------");
+      System.out.println("| Add | Remove | Update | Exit |");
+      System.out.println("---------------------------------");
+    }
+
 }
