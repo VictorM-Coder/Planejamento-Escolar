@@ -61,8 +61,13 @@ public class Grade extends Manager implements Editable<Subject>{
     }
 
     @Override
-    protected int FindItemIndexByName(String name) {
-        return 0;
+    public int FindItemIndexByName(String name) {
+        for (Subject subject : itens) {
+            if( subject.getName().equals(name)){
+                return itens.indexOf(subject);
+            }
+        }
+        throw new ManagerExceptions("Materia nao encontrada");
     }
 
     /**
@@ -88,5 +93,9 @@ public class Grade extends Manager implements Editable<Subject>{
         }
 
         return out;
+    }
+
+    public List<Subject> getSubjects(){
+        return itens;
     }
 }
