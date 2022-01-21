@@ -1,30 +1,32 @@
 package br.com.poo.schoolarplanning.tests;
+import java.util.Locale;
 import java.util.Scanner;
 import br.com.poo.schoolarplanning.domain.subjects.Subject;
 import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
 
+
 public class Main {
   public static void main(String[] args) {
 
+    Locale.setDefault(new Locale("pt", "BR"));
     Scanner leitor = new Scanner(System.in);
+    Grade grade = new Grade();
+    Kanban kanban = new Kanban();
     
     while( true ){
 
-      System.out.println("1 - Materias\n2 - Atividades\n3 - Exit");
+      Menus.menuPrincipal();
       int Opcao = leitor.nextInt();
-      Grade grade = new Grade();
-      Kanban kanban = new Kanban();
-
+      
       try{
         if( Opcao == 3) {
           break;
         } else if( Opcao == 1 ){
           while ( true ){
-
             String Opcao2 = leitor.nextLine();
             String ui[] = Opcao2.split("  ");
-            System.out.println("Add\nRemove\nUpdate\nExit");
+            Menus.menuMateria();
 
             if( ui[0].equals("Exit")){
               break;
@@ -33,19 +35,28 @@ public class Main {
               grade.add(materia);
             } else if( ui[0].equals("show")){
               System.out.print(grade.describeSubjects());
-            } else if( ui[0].equals("remove")){
-              
+              Menus.menuMateria();
+            } else if( ui[0].equals("remove")){ 
+              grade.remove(grade.getSubjects().get(grade.FindItemIndexByName(ui[1])));   
+            } else if( ui[0].equals("update")) {
+              int position = grade.FindItemIndexByName(ui[1]);
+              if( position != -1){ grade.remove(grade.getSubjects().get(position)); }
+            }
             }
         }
-      }
+      
       
     } catch ( Exception e){
       System.out.println(e.getMessage());
     }
 
+  
       
     
   } 
-
-  }
+ }
 }
+
+
+
+
