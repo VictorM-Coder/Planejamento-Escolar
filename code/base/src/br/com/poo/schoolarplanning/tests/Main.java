@@ -18,40 +18,42 @@ public class Main {
 
       Menus.menuPrincipal();
       int Opcao = leitor.nextInt();
-      
+
       try{
         if( Opcao == 3) {
           break;
         } else if( Opcao == 1 ){
-          while ( true ){
+          while ( true ) {
             String Opcao2 = leitor.nextLine();
             String ui[] = Opcao2.split("  ");
             Menus.menuMateria();
 
-            if( ui[0].equals("Exit")){
-              break;
-            } else if( ui[0].equals("add")){
-              Subject materia = new Subject(ui[1],ui[2],ui[3]);
-              grade.add(materia);
-            } else if( ui[0].equals("show")){
-              System.out.print(grade.describeSubjects());
-              Menus.menuMateria();
-            } else if( ui[0].equals("remove")){ 
-              grade.remove(grade.getSubjects().get(grade.FindItemIndexByName(ui[1])));   
-            } else if( ui[0].equals("update")) {
-              int position = grade.FindItemIndexByName(ui[1]);
-              if( position != -1){ grade.remove(grade.getSubjects().get(position)); }
+            while (!Opcao2.equals("exit")) {
+
+              switch (ui[0]) {
+                case "add":
+                  Subject materia = new Subject(ui[1], ui[2], ui[3]);
+                  grade.add(materia);
+                  break;
+                case "show":
+                  System.out.print(grade.describeSubjects());
+                  Menus.menuMateria();
+                  break;
+                case "remove":
+                  grade.remove(grade.getSubjects().get(grade.FindItemIndexByName(ui[1])));
+                case "update":
+                  materia = new Subject(ui[1], ui[2], ui[3]);
+                  grade.update(grade.getSubjects().get(grade.FindItemIndexByName(ui[1])), materia);
+                  break;
+              }
+
             }
-            }
-        }
-      
-      
-    } catch ( Exception e){
+          }
+      }
+    } catch ( Exception e ){
       System.out.println(e.getMessage());
     }
 
-  
-      
     
   } 
  }
