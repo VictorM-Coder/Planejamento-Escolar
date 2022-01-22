@@ -59,7 +59,7 @@ public class Kanban extends Manager implements Editable<Activity>{
     @Override
     public void update(Activity oldE, Activity newE) {
         remove(oldE);
-        add(oldE);
+        add(newE);
     }
 
     public List<Activity> getActivitiesByPhase(KanbanStage kanbanStage){
@@ -102,6 +102,6 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     public List<Activity> getActivies(){
-        return activities;
+        return this.activities;
     }
 }
