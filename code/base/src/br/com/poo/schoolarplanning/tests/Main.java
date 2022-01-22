@@ -70,7 +70,7 @@ public class Main {
                   case "update":
                     break;
                   case "kanban":
-                    System.out.println(kanban.toStringToByPhase());
+                    System.out.println(kanban.describe());
                     Menus.menuAtiv();
                     break;
                   case "exit":

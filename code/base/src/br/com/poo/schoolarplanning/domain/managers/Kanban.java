@@ -19,23 +19,10 @@ public class Kanban extends Manager implements Editable<Activity>{
         return "Kanban(All Activies):\n" + this.simpleListActivities(); 
     }
 
-    public String toStringToByPhase( ){
-        String out = "";
-        
-        System.out.println("TO DO");
-        for (Activity activity : getActivitiesByPhase( KanbanStage.TO_DO)) {
-            System.out.println("\t"+activity+"\n");
-        }
-
-        System.out.println("TO DOING");
-        for (Activity activity : getActivitiesByPhase(KanbanStage.DOING)) {
-            System.out.println("\t"+activity+"\n");
-        }
-
-        System.out.println("TO DONE");
-        for (Activity activity : getActivitiesByPhase(KanbanStage.DONE)) {
-            System.out.println("\t"+activity+"\n");
-        }
+    public String describe(){
+        String out = this.getStringActivitiesByPhase(KanbanStage.TO_DO);
+        out += this.getStringActivitiesByPhase(KanbanStage.DOING);
+        out += this.getStringActivitiesByPhase(KanbanStage.DONE);
         return out;
     }
 
@@ -81,6 +68,14 @@ public class Kanban extends Manager implements Editable<Activity>{
         return activitiesOnStage;
     }
 
+    public String getStringActivitiesByPhase(KanbanStage kanbanStage){
+        String out = kanbanStage + "\n";
+        for (Activity activity : getActivitiesByPhase(KanbanStage.DOING)) {
+            out += ("\t"+activity+"\n");
+        }
+        return out;
+    }
+
     @Override
     protected int findItemIndexByName(String name) throws ManagerExceptions{
         for (Activity activity : this.activities) {
@@ -88,7 +83,7 @@ public class Kanban extends Manager implements Editable<Activity>{
                 return this.activities.indexOf(activity);
             }
         }
-        throw new ManagerExceptions("Materia nao encontrada");
+        throw new ManagerExceptions("subject don't found");
     }
 
     private String simpleListActivities(){

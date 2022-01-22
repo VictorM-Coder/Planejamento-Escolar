@@ -32,6 +32,8 @@ public class Activity implements Comparable<Activity>{
                 "|\n\tDescription: " + this.description;
     }
 
+
+
     /**
      * calculate the number of days from today to the deadline
      * @return the number of days from today to the deadline.
@@ -63,7 +65,16 @@ public class Activity implements Comparable<Activity>{
         return Integer.compare(daysDifference, 0);
     }
 
-    public String getName(){ return name; }
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj)){
+           return (this.name == ((Activity)obj).name) && (this.subject == ((Activity)obj).subject);
+        }
+        return false;
+    }
+
+    public String getName(){
+        return name; }
 
     public KanbanStage getStage(){
         return this.stage;
