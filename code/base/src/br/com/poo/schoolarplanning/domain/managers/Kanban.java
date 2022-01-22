@@ -29,10 +29,12 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     public void controlKanban() throws ManagerExceptions{
-        Scanner scanner = new Scanner(System.in);
-        String option = scanner.nextLine();
-        String ui[] = option.split("  "); 
+        
         while ( true ) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("doing | done | exit");
+            String option = scanner.nextLine();
+            String ui[] = option.split("  "); 
             if( ui[0].equals("doing")){
                 doActivity(activities.get(findItemIndexByName(ui[1])));
                 System.out.println("Deu certo");
@@ -40,11 +42,7 @@ public class Kanban extends Manager implements Editable<Activity>{
                 doneActivity(activities.get(findItemIndexByName(ui[1])));
             } else if( ui[0].equals("exit")) {
                 break;
-            } 
-
-            System.out.println("doing | done | exit");
-            option = scanner.nextLine();
-            ui = option.split("  ");
+            }
         }
     
     }  
