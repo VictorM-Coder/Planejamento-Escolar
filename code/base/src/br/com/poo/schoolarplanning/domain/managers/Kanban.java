@@ -35,9 +35,15 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     @Override
-    public void add(Activity o) {
-        this.activities.add(o);
-        order(this.activities);
+    public void add(Activity o)  {
+        int found = 0;
+        for (Activity activ : activities) {
+            if( activ.equals(o) ){ found++; }  
+        } 
+        if( found == 0 ){
+            this.activities.add(o);
+            order(this.activities);
+        }   
     }
 
     @Override

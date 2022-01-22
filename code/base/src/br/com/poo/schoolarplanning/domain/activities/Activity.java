@@ -67,8 +67,8 @@ public class Activity implements Comparable<Activity>{
 
     @Override
     public boolean equals(Object obj) {
-        if (super.equals(obj)){
-           return (this.name == ((Activity)obj).name) && (this.subject == ((Activity)obj).subject);
+        if ((this.name == ((Activity)obj).name) && (this.subject.equals(((Activity)obj).subject))){
+           return true;
         }
         return false;
     }

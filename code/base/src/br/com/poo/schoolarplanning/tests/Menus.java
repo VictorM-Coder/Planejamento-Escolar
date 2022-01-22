@@ -11,13 +11,13 @@ public class  Menus {
     }
     public static void menuMateria(){
       System.out.println("---------------------------------");
-      System.out.println("| Add | Remove | Update | Exit |");
+      System.out.println("| add | remove | update | exit |");
       System.out.println("---------------------------------");
     }
 
     public static void menuAtiv(){
       System.out.println("----------------------------------------------------");
-      System.out.println("| Add | Remove | Update | Exit | Kanban | Pomodoro |");
+      System.out.println("| add | remove | update | exit | kanban | pomodoro |");
       System.out.println("----------------------------------------------------");
     }
 

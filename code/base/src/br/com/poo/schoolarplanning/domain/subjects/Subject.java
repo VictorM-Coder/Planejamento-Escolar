@@ -21,13 +21,18 @@ public class Subject implements Comparable<Subject>{
         return this.name.compareTo(subject.name);
     }
 
+    
     @Override
     public boolean equals(Object obj) {
-        if (super.equals(obj)){
+        /*if (this.name == ((Subject)obj).name){
             return ((this.name == ((Subject)obj).name) && (this.teacherName == ((Subject)obj).teacherName));
         }
         return false;
+        */
+        return ((Subject)obj).name.equals(this.name) && ((Subject)obj).teacherName.equals(this.teacherName);
+        
     }
+    
 
     public String getName(){
         return this.name;

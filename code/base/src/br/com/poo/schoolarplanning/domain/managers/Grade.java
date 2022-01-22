@@ -18,6 +18,8 @@ public class Grade extends Manager implements Editable<Subject>{
         order(this.subjects);
     }
 
+    
+
     /**
      *
      * @return a String of all subjects names on format:
@@ -44,9 +46,15 @@ public class Grade extends Manager implements Editable<Subject>{
      * @param subject subject to be add in the subjects list
      */
     @Override
-    public void add(Subject subject) {
-        this.subjects.add(subject);
-        order(this.subjects);
+    public void add(Subject o) {
+        int found = 0;
+        for (Subject subject : subjects) {
+            if( subject.equals(o) == true ){ found++; }  
+        } 
+        if( found == 0 ){
+            this.subjects.add(o);
+            order(this.subjects);
+        }
     }
 
     @Override
