@@ -38,7 +38,7 @@ public class Main {
                   grade.add(materia);
                   break;
                 case "show":
-                  System.out.print(grade.describeSubjects());
+                  System.out.print(grade.describe());
                   Menus.menuMateria();
                   break;
                 case "remove":

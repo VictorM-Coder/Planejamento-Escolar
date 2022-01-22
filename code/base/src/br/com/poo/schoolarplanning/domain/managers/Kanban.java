@@ -19,6 +19,7 @@ public class Kanban extends Manager implements Editable<Activity>{
         return "Kanban(All Activies):\n" + this.simpleListActivities(); 
     }
 
+    @Override
     public String describe(){
         String out = this.getStringActivitiesByPhase(KanbanStage.TO_DO);
         out += this.getStringActivitiesByPhase(KanbanStage.DOING);
@@ -32,6 +33,18 @@ public class Kanban extends Manager implements Editable<Activity>{
 
     public void doneActivity(Activity activity){
         activity.doneActivity();
+    }
+
+    public List<Activity> getActivitiesByPhase(KanbanStage kanbanStage){
+        List<Activity> activitiesOnStage = new ArrayList<Activity>();
+
+        for(Activity activity: this.activities){
+            if (activity.getStage() == kanbanStage){
+                activitiesOnStage.add(activity);
+            }
+        }
+
+        return activitiesOnStage;
     }
 
     @Override
@@ -62,26 +75,6 @@ public class Kanban extends Manager implements Editable<Activity>{
         add(newE);
     }
 
-    public List<Activity> getActivitiesByPhase(KanbanStage kanbanStage){
-        List<Activity> activitiesOnStage = new ArrayList<Activity>();
-
-        for(Activity activity: this.activities){
-            if (activity.getStage() == kanbanStage){
-                activitiesOnStage.add(activity);
-            }
-        }
-
-        return activitiesOnStage;
-    }
-
-    public String getStringActivitiesByPhase(KanbanStage kanbanStage){
-        String out = kanbanStage + "\n";
-        for (Activity activity : getActivitiesByPhase(kanbanStage)) {
-            out += ("\t"+activity+"\n");
-        }
-        return out;
-    }
-
     @Override
     public int findItemIndexByName(String name) throws ManagerExceptions{
         for (Activity activity : this.activities) {
@@ -89,15 +82,28 @@ public class Kanban extends Manager implements Editable<Activity>{
                 return this.activities.indexOf(activity);
             }
         }
-        throw new ManagerExceptions("subject don't found");
+        throw new ManagerExceptions("Activity don't found");
     }
 
-    private String simpleListActivities(){//abstract?
+    private String simpleListActivities(){
         String out = "";
         for (Activity activity: this.activities){
             out += activity.getName() + "["+ activity.getStage() +"]" + "\n";
         }
 
+        return out;
+    }
+
+    /**
+     * convert all activities of a specific phase to a String
+     * @param kanbanStage
+     * @return a String of all activities at a specific phase
+     */
+    private String getStringActivitiesByPhase(KanbanStage kanbanStage){
+        String out = kanbanStage + "\n";
+        for (Activity activity : getActivitiesByPhase(kanbanStage)) {
+            out += ("\t"+activity+"\n");
+        }
         return out;
     }
 

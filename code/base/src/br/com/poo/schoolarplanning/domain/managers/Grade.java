@@ -20,12 +20,8 @@ public class Grade extends Manager implements Editable<Subject>{
     }
 
     /**
-     *
      * @return a String of all subjects names on format:
-     * GRADE:
-     * name1
-     * name2
-     * ...
+     * GRADE: name1, name2,...
      */
     @Override
     public String toString(){
@@ -36,21 +32,27 @@ public class Grade extends Manager implements Editable<Subject>{
      * @return a String of all subjects on format:
      * GRADE: name1 teacher1 description1, name2 teacher2 description2,...
      */
-    public String describeSubjects(){
+    @Override
+    public String describe(){
         return "GRADE:\n" + listToString(this.subjects);
     }
 
     /**
      * Adds the specified element in the subjects list and orders the list
-     * @param subject subject to be add in the subjects list
+     * @param o subject to be add in the subjects list
      */
     @Override
     public void add(Subject o) {
-        int found = 0;
+        boolean contains = false;
+
         for (Subject subject : subjects) {
-            if( subject.equals(o) == true ){ found++; }  
-        } 
-        if( found == 0 ){
+            if(subject.equals(o)){
+                contains = true;
+                break;
+            }
+        }
+
+        if(!contains){
             this.subjects.add(o);
             order(this.subjects);
         }
@@ -79,15 +81,11 @@ public class Grade extends Manager implements Editable<Subject>{
                 return subjects.indexOf(subject);
             }
         }
-        throw new ManagerExceptions("Materia nao encontrada");
+        throw new ManagerExceptions("subject don't found");
     }
 
     /**
-     *
-     * @return a String with all subjects names on format:
-     * name1
-     * name2
-     * ...
+     * @return a String with all subjects names on format: name1, name2,...
      */
     private String listSubjectsByName(){
         String out = "";

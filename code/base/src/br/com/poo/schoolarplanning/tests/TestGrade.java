@@ -25,7 +25,7 @@ public class TestGrade {
        // grade.remove(subject5);
         Subject subject = new Subject("Discreta", "Araruna", "matematica discreta e suas aplicacoes");
         //grade.update(subject3, subject);
-        System.out.println(grade.describeSubjects());
+        System.out.println(grade.describe());
 
     }
 }
