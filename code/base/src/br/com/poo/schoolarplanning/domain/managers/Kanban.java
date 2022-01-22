@@ -7,6 +7,7 @@ import br.com.poo.schoolarplanning.domain.subjects.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Kanban extends Manager implements Editable<Activity>{
     private List<Activity> activities;
@@ -27,6 +28,29 @@ public class Kanban extends Manager implements Editable<Activity>{
         out += this.getStringActivitiesByPhase(KanbanStage.DONE);
         return out;
     }
+
+    public void controlKanban() throws ManagerExceptions{
+        
+        while ( true ) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("doing | done | exit");
+            String option = scanner.nextLine();
+            String ui[] = option.split("  "); 
+            if( ui[0].equals("doing")){
+                doActivity(activities.get(findItemIndexByName(ui[1])));
+                System.out.println("Deu certo");
+            } else if( ui[0].equals("done")){
+                doneActivity(activities.get(findItemIndexByName(ui[1])));
+            } else if( ui[0].equals("exit")) {
+                break;
+            }
+        }
+    
+    }  
+         
+        
+        
+    
 
     public void doActivity(Activity activity){
         activity.doActivity();
@@ -116,4 +140,6 @@ public class Kanban extends Manager implements Editable<Activity>{
     public List<Activity> getActivies(){
         return this.activities;
     }
+    
+    
 }
