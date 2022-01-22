@@ -76,7 +76,7 @@ public class Kanban extends Manager implements Editable<Activity>{
 
     public String getStringActivitiesByPhase(KanbanStage kanbanStage){
         String out = kanbanStage + "\n";
-        for (Activity activity : getActivitiesByPhase(KanbanStage.DOING)) {
+        for (Activity activity : getActivitiesByPhase(kanbanStage)) {
             out += ("\t"+activity+"\n");
         }
         return out;
