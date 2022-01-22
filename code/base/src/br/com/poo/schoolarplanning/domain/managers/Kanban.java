@@ -83,7 +83,7 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     @Override
-    protected int findItemIndexByName(String name) throws ManagerExceptions{
+    public int findItemIndexByName(String name) throws ManagerExceptions{
         for (Activity activity : this.activities) {
             if( activity.getName().equals(name)){
                 return this.activities.indexOf(activity);
@@ -99,5 +99,9 @@ public class Kanban extends Manager implements Editable<Activity>{
         }
 
         return out;
+    }
+
+    public List<Activity> getActivies(){
+        return activities;
     }
 }

@@ -11,7 +11,7 @@ public class  Menus {
     }
     public static void menuMateria(){
       System.out.println("---------------------------------");
-      System.out.println("| add | remove | update | exit |");
+      System.out.println("| add | remove | update | exit | show");
       System.out.println("---------------------------------");
     }
 

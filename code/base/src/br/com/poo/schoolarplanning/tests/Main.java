@@ -43,6 +43,8 @@ public class Main {
                 case "remove":
                   grade.removeByName(ui[1]);;
                 case "update":
+                  materia = new Subject(ui[1], ui[2], ui[3]);
+                  grade.update( grade.getSubjects().get(grade.findItemIndexByName(ui[1])), materia );
                   break;
                 case "exit":
                 throw new ManagerExceptions("");
@@ -68,6 +70,8 @@ public class Main {
                   case "remove":
                     kanban.removeByName(ui[1]);;
                   case "update":
+                    ativ = new Activity(ui[1], ui[2], LocalDate.now(), LocalDate.now(), grade.getSubjects().get(grade.findItemIndexByName(ui[3])));
+                    kanban.update(kanban.getActivies().get(kanban.findItemIndexByName(ui[1])), ativ);
                     break;
                   case "kanban":
                     System.out.println(kanban.describe());
