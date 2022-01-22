@@ -3,6 +3,7 @@ package br.com.poo.schoolarplanning.domain.managers;
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
+import br.com.poo.schoolarplanning.domain.subjects.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,14 +50,19 @@ public class Kanban extends Manager implements Editable<Activity>{
 
     @Override
     public void add(Activity o)  {
-        int found = 0;
-        for (Activity activ : activities) {//contains?
-            if( activ.equals(o) ){ found++; }  
-        } 
-        if( found == 0 ){
+        boolean contains = false;
+
+        for (Activity activity : this.activities) {
+            if(activity.equals(o)){
+                contains = true;
+                break;
+            }
+        }
+
+        if(!contains){
             this.activities.add(o);
             order(this.activities);
-        }   
+        }
     }
 
     @Override
