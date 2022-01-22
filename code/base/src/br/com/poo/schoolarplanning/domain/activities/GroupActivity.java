@@ -34,4 +34,8 @@ public class GroupActivity extends Activity{
 
         return out;
     }
+
+    public List<String> getParticipants(){
+        return this.participants;
+    }
 }

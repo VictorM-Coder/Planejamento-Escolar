@@ -1,4 +1,4 @@
-package br.com.poo.schoolarplanning.tests;
+package br.com.poo.schoolarplanning.main.elements;
 
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
 
@@ -20,7 +20,4 @@ public class  Menus {
       System.out.println("| add | remove | update | exit | kanban | pomodoro |");
       System.out.println("----------------------------------------------------");
     }
-
-    
-
 }

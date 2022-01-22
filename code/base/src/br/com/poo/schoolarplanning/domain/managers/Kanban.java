@@ -2,7 +2,7 @@ package br.com.poo.schoolarplanning.domain.managers;
 
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
-
+import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class Kanban extends Manager implements Editable<Activity>{
     @Override
     public void add(Activity o)  {
         int found = 0;
-        for (Activity activ : activities) {
+        for (Activity activ : activities) {//contains?
             if( activ.equals(o) ){ found++; }  
         } 
         if( found == 0 ){
@@ -92,7 +92,7 @@ public class Kanban extends Manager implements Editable<Activity>{
         throw new ManagerExceptions("subject don't found");
     }
 
-    private String simpleListActivities(){
+    private String simpleListActivities(){//abstract?
         String out = "";
         for (Activity activity: this.activities){
             out += activity.getName() + "["+ activity.getStage() +"]" + "\n";

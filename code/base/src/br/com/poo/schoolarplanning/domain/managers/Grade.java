@@ -1,5 +1,6 @@
 package br.com.poo.schoolarplanning.domain.managers;
 
+import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
 import br.com.poo.schoolarplanning.domain.subjects.Subject;
 
 import java.util.ArrayList;
@@ -17,8 +18,6 @@ public class Grade extends Manager implements Editable<Subject>{
         this.subjects.addAll(subjects);
         order(this.subjects);
     }
-
-    
 
     /**
      *
@@ -63,7 +62,7 @@ public class Grade extends Manager implements Editable<Subject>{
     }
 
     @Override
-    public void removeByName(String name) throws ManagerExceptions{
+    public void removeByName(String name) throws ManagerExceptions {
         this.remove(this.subjects.get(this.findItemIndexByName(name)));
     }
 

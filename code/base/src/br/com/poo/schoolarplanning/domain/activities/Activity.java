@@ -67,8 +67,8 @@ public class Activity implements Comparable<Activity>{
 
     @Override
     public boolean equals(Object obj) {
-        if ((this.name == ((Activity)obj).name) && (this.subject.equals(((Activity)obj).subject))){
-           return true;
+        if (obj instanceof Activity){
+           return ((this.name == ((Activity)obj).name) && (this.subject.equals(((Activity)obj).subject)));
         }
         return false;
     }
@@ -78,6 +78,22 @@ public class Activity implements Comparable<Activity>{
 
     public KanbanStage getStage(){
         return this.stage;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getDeadLine() {
+        return deadLine;
+    }
+
+    public Subject getSubject() {
+        return subject;
     }
 }
 

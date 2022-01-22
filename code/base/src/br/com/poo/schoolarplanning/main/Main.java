@@ -1,4 +1,4 @@
-package br.com.poo.schoolarplanning.tests;
+package br.com.poo.schoolarplanning.main;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
@@ -6,7 +6,8 @@ import br.com.poo.schoolarplanning.domain.subjects.Subject;
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
-import br.com.poo.schoolarplanning.domain.managers.ManagerExceptions;
+import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
+import br.com.poo.schoolarplanning.main.elements.Menus;
 
 
 public class Main {

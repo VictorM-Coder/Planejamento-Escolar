@@ -1,4 +1,4 @@
-package br.com.poo.schoolarplanning.domain.managers;
+package br.com.poo.schoolarplanning.domain.managers.exceptions;
 
 public class ManagerExceptions extends Exception {
   public ManagerExceptions(String message) {

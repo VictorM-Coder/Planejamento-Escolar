@@ -1,4 +1,6 @@
 package br.com.poo.schoolarplanning.domain.managers;
+import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
+
 import java.util.Collections;
 import java.util.List;
 
