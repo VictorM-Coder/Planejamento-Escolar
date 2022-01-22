@@ -77,6 +77,9 @@ public class Main {
                   case "kanban":
                     System.out.println(kanban.describe());
                     Menus.menuAtiv();
+                    System.out.println("doing | done | exit");
+                    kanban.controlKanban();
+                    Menus.menuAtiv();                    
                     break;
                   case "exit":
                   throw new ManagerExceptions("");
@@ -88,6 +91,7 @@ public class Main {
     } catch ( Exception e ){ 
       System.out.println(e.getMessage()); } 
   } 
+  leitor.close();
   }
 }
 

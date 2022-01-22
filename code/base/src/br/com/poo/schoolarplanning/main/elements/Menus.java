@@ -1,7 +1,5 @@
 package br.com.poo.schoolarplanning.main.elements;
 
-import br.com.poo.schoolarplanning.domain.managers.Kanban;
-
 public class  Menus {
 
     public static void menuPrincipal(){
@@ -10,9 +8,9 @@ public class  Menus {
       System.out.println("--------------------------------------------");
     }
     public static void menuMateria(){
-      System.out.println("---------------------------------");
-      System.out.println("| add | remove | update | exit | show");
-      System.out.println("---------------------------------");
+      System.out.println("---------------------------------------");
+      System.out.println("| add | remove | update | exit | show |");
+      System.out.println("---------------------------------------");
     }
 
     public static void menuAtiv(){
