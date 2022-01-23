@@ -43,6 +43,7 @@ public class Main {
                   break;
                 case "remove":
                   grade.removeByName(ui[1]);
+                  break;
                 case "update":
                   Subject materia = new Subject(ui[1], ui[2], ui[3]);
                   grade.update( grade.getSubjects().get( grade.findItemIndexByName(ui[1])), materia );
@@ -86,7 +87,8 @@ public class Main {
           
         } else { throw new ManagerExceptions("Opcao Invalida"); }
     } catch ( Exception e ){ 
-      System.out.println(e.getMessage()); } 
+      //System.out.println(e.getMessage());
+      e.printStackTrace(); } 
   } 
   scanner.close();
   }

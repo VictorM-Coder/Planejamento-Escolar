@@ -3,7 +3,6 @@ package br.com.poo.schoolarplanning.main.elements;
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.subjects.Subject;
-import br.com.poo.schoolarplanning.main.elements.Menus;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +18,7 @@ public class Form {
         String name = scanRequiredField("Subject name");
         String teacherName = scanRequiredField("teacher");
         String description = scanRequiredField("description");
+        
         return new Subject(name, teacherName, description);
     }
 
@@ -46,6 +46,7 @@ public class Form {
             }
         }while (value.length() == 0);
 
+        
         return value;
     }
 
