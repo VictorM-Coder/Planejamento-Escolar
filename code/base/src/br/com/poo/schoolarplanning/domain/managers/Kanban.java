@@ -38,7 +38,6 @@ public class Kanban extends Manager implements Editable<Activity>{
             String ui[] = option.split("  "); 
             if( ui[0].equals("doing")){
                 doActivity(activities.get(findItemIndexByName(ui[1])));
-                System.out.println("Deu certo");
             } else if( ui[0].equals("done")){
                 doneActivity(activities.get(findItemIndexByName(ui[1])));
             } else if( ui[0].equals("exit")) {
