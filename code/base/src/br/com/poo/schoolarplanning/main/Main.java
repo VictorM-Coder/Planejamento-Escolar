@@ -8,6 +8,8 @@ import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
 import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
 import br.com.poo.schoolarplanning.main.elements.Menus;
+import br.com.poo.schoolarplanning.main.elements.Form;
+
 
 
 public class Main {
@@ -34,8 +36,7 @@ public class Main {
 
               switch (ui[0]) {
                 case "add":
-                  Subject materia = new Subject(ui[1], ui[2], ui[3]);
-                  grade.add(materia);
+                  grade.add(Form.subjectForm());
                   break;
                 case "show":
                   System.out.print(grade.describe());
@@ -44,7 +45,7 @@ public class Main {
                 case "remove":
                   grade.removeByName(ui[1]);;
                 case "update":
-                  materia = new Subject(ui[1], ui[2], ui[3]);
+                  Subject materia = new Subject(ui[1], ui[2], ui[3]);
                   grade.update( grade.getSubjects().get( grade.findItemIndexByName(ui[1])), materia );
                   break;
                 case "exit":
@@ -61,8 +62,7 @@ public class Main {
   
                 switch (ui[0]) {
                   case "add":
-                    Activity ativ = new Activity(ui[1], ui[2], LocalDate.now(), LocalDate.now(), grade.getSubjects().get(grade.findItemIndexByName(ui[3])));
-                    kanban.add(ativ);
+                    kanban.add(Form.activityForm(grade));
                     break;
                   case "show":
                     System.out.print(kanban);
@@ -71,8 +71,7 @@ public class Main {
                   case "remove":
                     kanban.removeByName(ui[1]);;
                   case "update":
-                    ativ = new Activity(ui[1], ui[2], LocalDate.now(), LocalDate.now(), grade.getSubjects().get(grade.findItemIndexByName(ui[3])));
-                    kanban.update( kanban.getActivies().get(kanban.findItemIndexByName(ui[1])), ativ);
+                    kanban.add(Form.activityForm(grade));
                     break;
                   case "kanban":
                     System.out.println(kanban.describe());

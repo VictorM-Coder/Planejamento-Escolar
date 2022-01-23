@@ -18,7 +18,7 @@ public class Form {
         String name = scanRequiredField("Subject name");
         String teacherName = scanRequiredField("teacher");
         String description = scanRequiredField("description");
-
+        
         return new Subject(name, teacherName, description);
     }
 
