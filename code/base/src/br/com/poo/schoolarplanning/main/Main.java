@@ -42,7 +42,7 @@ public class Main {
                   Menus.menuSubject();
                   break;
                 case "remove":
-                  grade.removeByName(ui[1]);;
+                  grade.removeByName(ui[1]);
                 case "update":
                   Subject materia = new Subject(ui[1], ui[2], ui[3]);
                   grade.update( grade.getSubjects().get( grade.findItemIndexByName(ui[1])), materia );

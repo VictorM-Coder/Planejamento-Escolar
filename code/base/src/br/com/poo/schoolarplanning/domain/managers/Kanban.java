@@ -3,7 +3,7 @@ package br.com.poo.schoolarplanning.domain.managers;
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
-import br.com.poo.schoolarplanning.domain.subjects.Subject;
+
 
 import java.util.ArrayList;
 import java.util.List;

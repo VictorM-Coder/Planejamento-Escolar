@@ -80,7 +80,6 @@ public class Form {
             try {
                 System.out.print("\tnumber: ");
                 int index = input.nextInt();
-
                 subject = grade.getSubjects().get(index);
                 valueIsValid = true;
 
