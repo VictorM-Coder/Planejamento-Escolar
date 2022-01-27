@@ -10,14 +10,11 @@ public class TestForm {
         Kanban kanban = new Kanban();
 
         grade.add(Form.subjectForm());
-        grade.add(Form.subjectForm());
-
-        System.out.println("------------------");
-        System.out.println(grade.describe());
-        System.out.println("------------------");
 
         kanban.add(Form.activityForm(grade));
         kanban.add(Form.activityForm(grade));
+
+        Form.switchActivity(kanban);
 
         System.out.println("------------------");
         System.out.println(kanban.describe());
