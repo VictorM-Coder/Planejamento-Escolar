@@ -47,8 +47,8 @@ public class Form {
         do{
             try {
                 System.out.print("\tnumber: ");
-                int index = input.nextInt();
-                subject = grade.getSubjects().get(index);
+                String index = input.nextLine();
+                subject = grade.getSubjects().get(Integer.parseInt(index));
                 valueIsValid = true;
 
             }catch (Exception exception){
@@ -71,8 +71,8 @@ public class Form {
         do{
             try {
                 System.out.print("\tnumber: ");
-                int index = input.nextInt();
-                activity = kanban.getActivies().get(index);
+                String index = input.nextLine();
+                activity = kanban.getActivies().get(Integer.parseInt(index));
                 valueIsValid = true;
 
             }catch (Exception exception){

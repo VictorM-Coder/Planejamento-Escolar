@@ -1,11 +1,12 @@
 package br.com.poo.schoolarplanning.main;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
-import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
 import br.com.poo.schoolarplanning.main.elements.Menus;
 import br.com.poo.schoolarplanning.main.elements.Form;
 
@@ -21,20 +22,22 @@ public class Main {
         while (true) {
 
             Menus.menuPrincipal();
-            int Opcao = scanner.nextInt();
+            String option = scanner.next();
             scanner.nextLine();
             try {
-                if(Opcao == 1){
+                if(option.equalsIgnoreCase("grade")){
                     gradeScene(grade);
 
-                } else if(Opcao == 2){
-                    kanbanScene(kanban, grade);
+                } else if(option.equalsIgnoreCase("activities")){
+                    if (checkListIsNotEmpty("subject", grade.getSubjects())){
+                        kanbanScene(kanban, grade);
+                    }
 
-                } else if(Opcao == 3){
+                }else if(option.equalsIgnoreCase("exit")){
                     break;
 
                 } else{
-                    throw new ManagerExceptions("Opcao Invalida");
+                    soutErrorInvalidValue();
                 }
             } catch (Exception e) {
                 //System.out.println(e.getMessage());
@@ -45,7 +48,7 @@ public class Main {
     }
 
     /*MAIN CLASS*/
-    public static void gradeScene(Grade grade){
+    private static void gradeScene(Grade grade){
         while (true) {
             Menus.menuSubject();
             String Opcao2 = new Scanner(System.in).nextLine();
@@ -58,18 +61,24 @@ public class Main {
                 System.out.print(grade.describe());
 
             } else if ("remove".equals(ui[0])) {
-                grade.remove(Form.switchSubject(grade));
+                if (checkListIsNotEmpty("subject", grade.getSubjects())){
+                    grade.remove(Form.switchSubject(grade));
+                }
 
             } else if ("update".equals(ui[0])) {
-                grade.update(Form.switchSubject(grade), Form.subjectForm());
+                if (checkListIsNotEmpty("subject", grade.getSubjects())){
+                    grade.update(Form.switchSubject(grade), Form.subjectForm());
+                }
 
             } else if ("exit".equals(ui[0])) {
                 break;
+            }else{
+                soutErrorInvalidValue();
             }
         }
     }
 
-    public static void kanbanScene(Kanban kanban, Grade grade){
+    private static void kanbanScene(Kanban kanban, Grade grade){
         while (true) {
             Menus.menuAtiv();
             String Opcao2 = new Scanner(System.in).nextLine();
@@ -82,20 +91,26 @@ public class Main {
                 System.out.print(kanban);
 
             } else if ("remove".equals(ui[0])) {
-                kanban.remove(Form.switchActivity(kanban));
+                if (checkListIsNotEmpty("activity", kanban.getActivies())){
+                    kanban.remove(Form.switchActivity(kanban));
+                }
 
             } else if ("update".equals(ui[0])) {
-                kanban.update(Form.switchActivity(kanban), Form.activityForm(grade));
+                if (checkListIsNotEmpty("activity", kanban.getActivies())){
+                    kanban.update(Form.switchActivity(kanban), Form.activityForm(grade));
+                }
 
             } else if ("kanban".equals(ui[0])) {
                 kanbanActionsScene(kanban);
             } else if ("exit".equals(ui[0])) {
                 break;
+            }else{
+                soutErrorInvalidValue();
             }
         }
     }
 
-    public static void kanbanActionsScene(Kanban kanban){
+    private static void kanbanActionsScene(Kanban kanban){
         while (true){
             System.out.println(kanban.describe());
             Menus.menuKanban();
@@ -103,15 +118,33 @@ public class Main {
             String option = new Scanner(System.in).nextLine();
 
             if (option.equalsIgnoreCase("do")){
-                kanban.doActivity(Form.switchActivity(kanban));
+                if (checkListIsNotEmpty("activity to do", kanban.getActivitiesByPhase(KanbanStage.TO_DO))){
+                    kanban.doActivity(Form.switchActivity(kanban));
+                }
 
             }else if (option.equalsIgnoreCase("done")){
-                kanban.doneActivity(Form.switchActivity(kanban));
+                if (checkListIsNotEmpty("activity doing", kanban.getActivitiesByPhase(KanbanStage.DOING))){
+                    kanban.doneActivity(Form.switchActivity(kanban));
+                }
 
             }else if (option.equalsIgnoreCase("exit")){
                 break;
+            }else{
+                soutErrorInvalidValue();
             }
         }
+    }
+
+    private static void soutErrorInvalidValue(){
+        System.out.println("error: invalid value");
+    }
+
+    private static boolean checkListIsNotEmpty(String nameList, List list){
+        if (list.isEmpty()){
+            System.out.println("Error: you need to add a " + nameList + " first");
+            return false;
+        }
+        return true;
     }
 }
 

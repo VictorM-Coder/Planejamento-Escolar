@@ -3,9 +3,9 @@ package br.com.poo.schoolarplanning.main.elements;
 public class  Menus {
 
     public static void menuPrincipal(){
-      System.out.println("--------------------------------------------");
-      System.out.println("| 1 - SUBJECTS | 2 - ACTIVITIES | 3 - EXIT | ");
-      System.out.println("--------------------------------------------");
+      System.out.println("-----------------------------");
+      System.out.println("| GRADE | ACTIVITIES | EXIT | ");
+      System.out.println("-----------------------------");
     }
     public static void menuSubject(){
       System.out.println("---------------------------------------");
