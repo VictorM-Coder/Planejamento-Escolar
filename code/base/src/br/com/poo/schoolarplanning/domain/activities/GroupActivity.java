@@ -18,9 +18,18 @@ public class GroupActivity extends Activity{
         }
     }
 
+    public GroupActivity(String name, String description, LocalDate startData, LocalDate deadLine, Subject subject, List<String> participants){
+        super(name, description, startData, deadLine, subject);
+        this.participants = participants;
+    }
+
     @Override
     public String toString(){
         return super.toString() + "|\n\tParticipants: " + this.participantsToString();
+    }
+
+    public void setParticipants(List<String> participants){
+        this.participants = participants;
     }
 
     private String participantsToString(){

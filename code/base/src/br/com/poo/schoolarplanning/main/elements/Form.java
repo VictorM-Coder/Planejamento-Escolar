@@ -1,6 +1,7 @@
 package br.com.poo.schoolarplanning.main.elements;
 
 import br.com.poo.schoolarplanning.domain.activities.Activity;
+import br.com.poo.schoolarplanning.domain.activities.GroupActivity;
 import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
 import br.com.poo.schoolarplanning.domain.subjects.Subject;
@@ -31,7 +32,13 @@ public class Form {
         LocalDate startDate = scanLocalDateField("Start date");
         LocalDate deadLine = scanLocalDateField("DeadLine");
         Subject subject = switchSubject(grade);
-        
+
+
+        if (isAgroupActivity()){
+            return new GroupActivity(name, description, startDate, deadLine, subject, activityParticipantsForm());
+        }
+
+
 
         return new Activity(name, description, startDate, deadLine, subject);
     }
@@ -142,4 +149,27 @@ public class Form {
         return out;
     }
 
+    private static boolean isAgroupActivity(){
+        System.out.print("is a group activity? [yes / enter anything for not]: ");
+        String option = new Scanner(System.in).nextLine();
+
+        return (option.equalsIgnoreCase("yes"));
+    }
+
+    private static List<String> activityParticipantsForm(){
+        List<String> list = new ArrayList<String>();
+        Scanner input = new Scanner(System.in);
+
+        do {
+            list.add(scanRequiredField("name participant"));
+
+            System.out.print("continue?[no / enter anything to continue]: ");
+            String flag = input.nextLine();
+
+            if (flag.equalsIgnoreCase("no")){
+                break;
+            }
+        }while (true);
+        return list;
+    }
 }
