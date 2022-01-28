@@ -22,7 +22,9 @@ public class Serializer {
     public static void writeActivitiesList(List<Activity> activities){
         try {
             writeList(URL_FILE_ACTIVITIES, activities);
+
         }catch (IOException exception){
+            System.out.println("error: " + exception);
             exception.printStackTrace();
         }
     }
@@ -34,8 +36,10 @@ public class Serializer {
     public static List<Activity> readActivitiesList(){
         try{
             return readList(URL_FILE_ACTIVITIES);
-        }catch (ClassNotFoundException | IOException exception){
 
+        }catch (ClassNotFoundException | IOException exception){
+            System.out.println("error: " + exception);
+            exception.printStackTrace();
         }
 
         return new ArrayList<Activity>();
@@ -48,9 +52,9 @@ public class Serializer {
     public static void writeSubjectsList(List<Subject> subjects){
         try{
             writeList(URL_FILE_SUBJECTS, subjects);
+
         }catch (IOException exception){
             System.out.println("error: " + exception);
-
             exception.printStackTrace();
         }
     }
@@ -62,9 +66,9 @@ public class Serializer {
     public static List<Subject> readSubjectList(){
         try{
             return readList(URL_FILE_SUBJECTS);
+
         }catch (ClassNotFoundException | IOException exception){
             System.out.println("error: " + exception);
-
             exception.printStackTrace();
         }
 
@@ -86,17 +90,20 @@ public class Serializer {
     }
 
     /**
-     * reads a List object of a file
+     * reads a List object of a file.
      * @param url of the file will be read
      * @return a list of the file from the url
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    private static List readList(String url) throws IOException, ClassNotFoundException {
+    private static List readList(String url) throws ClassNotFoundException, IOException {
         try(FileInputStream fileInputStream = new FileInputStream(url);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);){
 
             return (List) objectInputStream.readObject();
+
+        }catch ( ClassNotFoundException | IOException exception){
+            throw exception;
         }
     }
 }
