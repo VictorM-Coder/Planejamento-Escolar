@@ -7,6 +7,7 @@ public class  Menus {
       System.out.println("| GRADE | ACTIVITIES | EXIT | ");
       System.out.println("-----------------------------");
     }
+
     public static void menuSubject(){
       System.out.println("---------------------------------------");
       System.out.println("| ADD | REMOVE | UPDATE | SHOW | EXIT |");

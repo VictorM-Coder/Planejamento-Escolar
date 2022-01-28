@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * this class serializes List objects from <i>Managers<i/> classes
+ * this class models a "Serializer" that serializes List objects from <i>Managers<i/> classes
  * @author Victor Martins
  */
 public class Serializer {
@@ -83,8 +83,6 @@ public class Serializer {
 
            objectOutputStream.writeObject(list);
        }
-
-
     }
 
     /**

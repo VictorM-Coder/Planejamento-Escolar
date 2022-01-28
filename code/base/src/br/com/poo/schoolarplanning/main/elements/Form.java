@@ -13,8 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/** this class models a form that is used to interact with the user
+ * @author Victor Martins
+ */
 public class Form {
 
+    /**
+     * Creates a form to receive all the attributes of a Subject
+     * @return a new Subject
+     */
     public static Subject subjectForm(){
         System.out.println("[SUBJECT FORM]");
 
@@ -25,6 +32,10 @@ public class Form {
         return new Subject(name, teacherName, description);
     }
 
+    /**
+     * Creates a form to receive all the attributes of an Activity
+     * @return a new Activity
+     */
     public static Activity activityForm(Grade grade){
         System.out.println("[ACTIVITY FORM]");
         String name = scanRequiredField("Activity name");
@@ -43,6 +54,11 @@ public class Form {
         return new Activity(name, description, startDate, deadLine, subject);
     }
 
+    /**
+     * shows all subjects to the user and permits him chooses one
+     * @param grade of subjects options
+     * @return the chosen Subject
+     */
     public static Subject switchSubject(Grade grade){
         boolean valueIsValid;
         Subject subject = null;
@@ -67,6 +83,11 @@ public class Form {
         return subject;
     }
 
+    /**
+     * shows all activities to the user and permits him chooses one
+     * @param kanban of activities options
+     * @return the chosen Activity
+     */
     public static Activity switchActivity(Kanban kanban){
         boolean valueIsValid;
         Activity activity = null;
@@ -91,6 +112,11 @@ public class Form {
         return activity;
     }
 
+    /**
+     * scan a not empty String
+     * @param fieldName title of field
+     * @return a not empty String
+     */
     private static String scanRequiredField(String fieldName){
         Scanner input = new Scanner(System.in);
         String value = "";
@@ -107,6 +133,11 @@ public class Form {
         return value;
     }
 
+    /**
+     * scan a date
+     * @param fieldName title of field
+     * @return a LocalDate
+     */
     private static LocalDate scanLocalDateField(String fieldName){
         Scanner input = new Scanner(System.in);
         LocalDate localDate = LocalDate.now();
@@ -126,6 +157,11 @@ public class Form {
         return localDate;
     }
 
+    /**
+     * Create a String by a Subject List
+     * @param subjects to be listed
+     * @return a String with all subjects
+     */
     private static String subjectsOptions(List<Subject> subjects){
         String out = "";
 
@@ -136,6 +172,11 @@ public class Form {
         return out;
     }
 
+    /**
+     * Create a String by an Activity List
+     * @param activities to be listed
+     * @return a String with all activities
+     */
     private static String activitiesOptions(List<Activity> activities){
         String out = "";
 
@@ -149,6 +190,10 @@ public class Form {
         return out;
     }
 
+    /**
+     * asks if that is a GroupActivity
+     * @return a boolean type from the answer
+     */
     private static boolean isAgroupActivity(){
         System.out.print("is a group activity? [yes / enter anything for not]: ");
         String option = new Scanner(System.in).nextLine();
@@ -156,6 +201,10 @@ public class Form {
         return (option.equalsIgnoreCase("yes"));
     }
 
+    /**
+     * Creates a form to receive all the names of the participants
+     * @return a new String List of names
+     */
     private static List<String> activityParticipantsForm(){
         List<String> list = new ArrayList<String>();
         Scanner input = new Scanner(System.in);
