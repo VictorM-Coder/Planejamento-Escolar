@@ -3,10 +3,11 @@ package br.com.poo.schoolarplanning.domain.activities;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.subjects.Subject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Activity implements Comparable<Activity>{
+public class Activity implements Comparable<Activity>, Serializable {
 
     private String name;
     private String description;

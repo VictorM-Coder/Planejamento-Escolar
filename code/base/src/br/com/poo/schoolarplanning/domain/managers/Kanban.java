@@ -2,7 +2,7 @@ package br.com.poo.schoolarplanning.domain.managers;
 
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
-import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerExceptions;
+import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerException;
 
 
 import java.util.ArrayList;
@@ -13,6 +13,11 @@ public class Kanban extends Manager implements Editable<Activity>{
 
     public Kanban(){
         this.activities = new ArrayList<Activity>();
+    }
+
+    public Kanban(List<Activity> activities){
+        this();
+        this.activities = activities;
     }
 
     @Override
@@ -71,7 +76,7 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     @Override
-    public void removeByName(String name) throws ManagerExceptions {
+    public void removeByName(String name) throws ManagerException {
         this.remove(this.activities.get(this.findItemIndexByName(name)));
     }
 
@@ -82,13 +87,13 @@ public class Kanban extends Manager implements Editable<Activity>{
     }
 
     @Override
-    public int findItemIndexByName(String name) throws ManagerExceptions{
+    public int findItemIndexByName(String name) throws ManagerException{
         for (Activity activity : this.activities) {
             if( activity.getName().equals(name)){
                 return this.activities.indexOf(activity);
             }
         }
-        throw new ManagerExceptions("Activity don't found");
+        throw new ManagerException("Activity don't found");
     }
 
     private String simpleListActivities(){

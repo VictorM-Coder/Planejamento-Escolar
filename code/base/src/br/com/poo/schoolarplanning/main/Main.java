@@ -9,6 +9,7 @@ import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
 import br.com.poo.schoolarplanning.main.elements.Menus;
 import br.com.poo.schoolarplanning.main.elements.Form;
+import br.com.poo.schoolarplanning.persistence.Serializer;
 
 
 public class Main {
@@ -16,8 +17,8 @@ public class Main {
 
         Locale.setDefault(new Locale("pt", "BR"));
         Scanner scanner = new Scanner(System.in);
-        Grade grade = new Grade();
-        Kanban kanban = new Kanban();
+        Grade grade = new Grade(Serializer.readSubjectList());
+        Kanban kanban = new Kanban(Serializer.readActivitiesList());
 
         while (true) {
 
@@ -34,6 +35,8 @@ public class Main {
                     }
 
                 }else if(option.equalsIgnoreCase("exit")){
+                    Serializer.writeActivitiesList(kanban.getActivies());
+                    Serializer.writeSubjectsList(grade.getSubjects());
                     break;
 
                 } else{
