@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 /** this class models a form that is used to interact with the user
  * @author Victor Martins
+ * @author Higor Santiago
  */
 public class Form {
 

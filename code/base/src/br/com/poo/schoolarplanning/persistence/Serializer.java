@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * this class models a "Serializer" that serializes List objects from <i>Managers<i/> classes
  * @author Victor Martins
+ * @author Higor Santiago
  */
 public class Serializer {
     private static final String URL_FILE_ACTIVITIES = "data/ActivitiesList.ser";
