@@ -7,6 +7,12 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * This class models "Activity", as it takes care of user activity needs.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
+
 public class Activity implements Comparable<Activity>, Serializable {
 
     private String name;

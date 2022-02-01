@@ -4,6 +4,13 @@ import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerException;
 import java.util.Collections;
 import java.util.List;
 
+
+/**
+ * This class models the "manager" class, which is the abstract class that will provide some standard methods.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
+
 public abstract class Manager {
 
     public abstract String describe();

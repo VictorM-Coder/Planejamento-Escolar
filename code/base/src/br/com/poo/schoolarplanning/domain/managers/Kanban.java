@@ -3,10 +3,14 @@ package br.com.poo.schoolarplanning.domain.managers;
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerException;
-
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * This class models the "Kanban" class, which is the class responsible for organizing the kanban idea in the application.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
 
 public class Kanban extends Manager implements Editable<Activity>{
     private List<Activity> activities;

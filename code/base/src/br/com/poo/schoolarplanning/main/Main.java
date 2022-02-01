@@ -11,6 +11,11 @@ import br.com.poo.schoolarplanning.main.elements.Menus;
 import br.com.poo.schoolarplanning.main.elements.Form;
 import br.com.poo.schoolarplanning.persistence.Serializer;
 
+/**
+ * This class is responsible for controlling the application and interacting with the user.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
 
 public class Main {
     public static void main(String[] args) {

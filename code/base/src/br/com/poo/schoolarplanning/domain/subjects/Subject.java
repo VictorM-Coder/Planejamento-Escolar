@@ -1,6 +1,12 @@
 package br.com.poo.schoolarplanning.domain.subjects;
-
 import java.io.Serializable;
+
+
+/**
+ * This class models the "Subjects" class, which goes from the needs in relation to the user's materials.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
 
 public class Subject implements Comparable<Subject>, Serializable {
     private String name;

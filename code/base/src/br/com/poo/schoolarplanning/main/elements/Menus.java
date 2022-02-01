@@ -1,5 +1,10 @@
 package br.com.poo.schoolarplanning.main.elements;
 
+/**
+ *This This class is responsible for printing the menus
+ * @author Higor Santiago
+ * @author Victor Martins
+ */
 public class  Menus {
 
     public static void menuPrincipal(){

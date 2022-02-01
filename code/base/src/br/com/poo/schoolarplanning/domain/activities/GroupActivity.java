@@ -6,6 +6,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class models "GroupActivity", as it takes care of user group activity needs.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
+
 public class GroupActivity extends Activity{
     private List<String> participants;
 

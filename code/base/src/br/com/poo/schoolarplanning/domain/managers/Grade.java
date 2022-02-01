@@ -6,6 +6,13 @@ import br.com.poo.schoolarplanning.domain.subjects.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * This class models the "Grade" class, which is the class responsible for organizing the user's materials.
+ * @author Higor Santiago
+ * @author Victor Martins 
+ */
+
 public class Grade extends Manager implements Editable<Subject>{
     private List<Subject> subjects;
 
