@@ -14,12 +14,12 @@ public abstract class Manager {
      * @return the index of the first object with the same name, or -1 if its does not exist
      * @throws ManagerException
      */
-    protected abstract int findItemIndexByName(String name) throws ManagerException;
+    public abstract int findItemIndexByName(String name) throws ManagerException;
 
     /**
      * @param list  the Method sorts the list through the sort method of the collections interface
      */
-    protected static void order(List list){
+    public static void order(List list){
         Collections.sort(list);
     }
 
@@ -28,7 +28,7 @@ public abstract class Manager {
      * @param list
      * @return the List in a String format
      */
-    protected static String listToString(List list){
+    public static String listToString(List list){
         String out = "";
         for (Object object: list){
             out += object.toString() + "\n";
