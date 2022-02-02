@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.managers.Grade;
 import br.com.poo.schoolarplanning.domain.managers.Kanban;
+import br.com.poo.schoolarplanning.domain.subjects.Subject;
 import br.com.poo.schoolarplanning.main.elements.Menus;
 import br.com.poo.schoolarplanning.main.elements.Form;
 import br.com.poo.schoolarplanning.persistence.Serializer;
@@ -32,7 +34,7 @@ public class Main {
             scanner.nextLine();
             try {
                 if(option.equalsIgnoreCase("grade")){
-                    gradeScene(grade);
+                    gradeScene(grade, kanban);
 
                 } else if(option.equalsIgnoreCase("activities")){
                     if (checkListIsNotEmpty("subject", grade.getSubjects())){
@@ -55,7 +57,7 @@ public class Main {
     }
 
     /*MAIN CLASS*/
-    private static void gradeScene(Grade grade){
+    private static void gradeScene(Grade grade, Kanban kanban){
         while (true) {
             Menus.menuSubject();
             String Opcao2 = new Scanner(System.in).nextLine();
@@ -69,7 +71,17 @@ public class Main {
 
             } else if ("remove".equals(ui[0])) {
                 if (checkListIsNotEmpty("subject", grade.getSubjects())){
-                    grade.remove(Form.switchSubject(grade));
+                    Subject subject = Form.switchSubject(grade);
+                    System.out.print("Are you sure about that? (all activities of this subject will be deleted) [yes/no]: ");
+                    String answer = new Scanner(System.in).nextLine();
+
+                    if (answer.equalsIgnoreCase("yes")){
+                        grade.remove(subject);
+
+                        for (Activity activity: kanban.getActivitiesBySubject(subject)){
+                            kanban.remove(activity);
+                        }
+                    }
                 }
 
             } else if ("update".equals(ui[0])) {
