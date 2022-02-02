@@ -21,7 +21,7 @@ public class Subject implements Comparable<Subject>, Serializable {
 
     @Override
     public String toString(){
-        return String.format("Name: %s\nTeacher: %s\nDescription: %s", this.name, this.teacherName, this.description);
+        return String.format("[Subject: %s]\nTeacher: %s\nDescription: %s", this.name, this.teacherName, this.description);
     }
 
     @Override
