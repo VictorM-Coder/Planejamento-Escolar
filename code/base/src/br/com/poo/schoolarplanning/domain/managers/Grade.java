@@ -6,13 +6,11 @@ import br.com.poo.schoolarplanning.domain.subjects.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * This class models the "Grade" class, which is the class responsible for organizing the user's materials.
  * @author Higor Santiago
  * @author Victor Martins 
  */
-
 public class Grade extends Manager implements Editable<Subject>{
     private List<Subject> subjects;
 
@@ -65,16 +63,20 @@ public class Grade extends Manager implements Editable<Subject>{
         }
     }
 
+    /**
+     * Removes the first occurrence of the specified element from this Grade, if it is present (optional operation). If this Grade does not contain the element, it is unchanged
+     * @param subject
+     */
     @Override
     public void remove(Subject subject){
         this.subjects.remove(subject);
     }
 
-    @Override
-    public void removeByName(String name) throws ManagerException {
-        this.remove(this.subjects.get(this.findItemIndexByName(name)));
-    }
-
+    /**
+     * remove the old Activity and add a new activity to this Grade
+     * @param oldE
+     * @param newE
+     */
     @Override
     public void update(Subject oldE, Subject newE){
         this.remove(oldE);

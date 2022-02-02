@@ -3,6 +3,8 @@ package br.com.poo.schoolarplanning.domain.managers;
 import br.com.poo.schoolarplanning.domain.activities.Activity;
 import br.com.poo.schoolarplanning.domain.enums.KanbanStage;
 import br.com.poo.schoolarplanning.domain.managers.exceptions.ManagerException;
+import br.com.poo.schoolarplanning.domain.subjects.Subject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,6 @@ import java.util.List;
  * @author Higor Santiago
  * @author Victor Martins 
  */
-
 public class Kanban extends Manager implements Editable<Activity>{
     private List<Activity> activities;
 
@@ -57,37 +58,57 @@ public class Kanban extends Manager implements Editable<Activity>{
         return activitiesOnStage;
     }
 
+    public List<Activity> getActivitiesBySubject(Subject subject){
+        List<Activity> activitiesOut = new ArrayList<Activity>();
+
+        for(Activity activity: this.activities){
+            if (activity.getSubject().equals(subject)){
+                activitiesOut.add(activity);
+            }
+        }
+
+        return activitiesOut;
+    }
+
+    /**
+     * add a new activity to this kanban if it doesn't exist yet, and orders the list
+     * @param act will be added
+     */
     @Override
-    public void add(Activity o)  {
+    public void add(Activity act)  {
         boolean contains = false;
 
         for (Activity activity : this.activities) {
-            if(activity.equals(o)){
+            if(activity.equals(act)){
                 contains = true;
                 break;
             }
         }
 
         if(!contains){
-            this.activities.add(o);
+            this.activities.add(act);
             order(this.activities);
         }
     }
 
+    /**
+     * Removes the first occurrence of the specified element from this Kanban, if it is present (optional operation). If this Kanban does not contain the element, it is unchanged
+     * @param activity
+     */
     @Override
-    public void remove(Activity o) {
-        activities.remove(o);
+    public void remove(Activity activity) {
+        activities.remove(activity);
     }
 
+    /**
+     *remove the old Activity and add a new activity to this Kanban,
+     * @param oldActivity
+     * @param newActivity
+     */
     @Override
-    public void removeByName(String name) throws ManagerException {
-        this.remove(this.activities.get(this.findItemIndexByName(name)));
-    }
-
-    @Override
-    public void update(Activity oldE, Activity newE) {
-        remove(oldE);
-        add(newE);
+    public void update(Activity oldActivity, Activity newActivity) {
+        remove(oldActivity);
+        add(newActivity);
     }
 
     @Override

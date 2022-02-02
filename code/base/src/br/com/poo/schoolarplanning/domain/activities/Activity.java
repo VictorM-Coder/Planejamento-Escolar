@@ -12,7 +12,6 @@ import java.time.temporal.ChronoUnit;
  * @author Higor Santiago
  * @author Victor Martins 
  */
-
 public class Activity implements Comparable<Activity>, Serializable {
 
     private String name;

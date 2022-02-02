@@ -10,7 +10,6 @@ import java.util.List;
  * @author Higor Santiago
  * @author Victor Martins 
  */
-
 public abstract class Manager {
 
     public abstract String describe();

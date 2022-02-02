@@ -11,7 +11,6 @@ import java.util.List;
  * @author Higor Santiago
  * @author Victor Martins 
  */
-
 public class GroupActivity extends Activity{
     private List<String> participants;
 
