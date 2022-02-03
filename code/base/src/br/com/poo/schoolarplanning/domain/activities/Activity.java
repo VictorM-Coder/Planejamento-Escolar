@@ -33,8 +33,8 @@ public class Activity implements Comparable<Activity>, Serializable {
 
     @Override
     public String toString() {
-        return "[Activity: " + this.name + " Phase: " + this.stage + "Tile left: " + this.daysUntilDeadLine() +
-                "\n\tStart Date: " + this.startDate + " DeadLine: " + this.deadLine +
+        return "[Activity: " + this.name + " | Phase: " + this.stage + " | Time left: " + this.daysUntilDeadLine() +
+                "\n\tStart Date: " + this.startDate + " | DeadLine: " + this.deadLine +
                 "\n\tDescription: " + this.description;
     }
 
