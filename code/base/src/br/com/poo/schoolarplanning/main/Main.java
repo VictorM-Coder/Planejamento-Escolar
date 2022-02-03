@@ -60,16 +60,15 @@ public class Main {
     private static void gradeScene(Grade grade, Kanban kanban){
         while (true) {
             Menus.menuSubject();
-            String Opcao2 = new Scanner(System.in).nextLine();
-            String ui[] = Opcao2.split("  ");
+            String option = new Scanner(System.in).nextLine();
 
-            if ("add".equals(ui[0])) {
+            if ("add".equalsIgnoreCase(option)) {
                 grade.add(Form.subjectForm());
 
-            } else if ("show".equals(ui[0])) {
+            } else if ("show".equalsIgnoreCase(option)) {
                 System.out.print(grade.describe());
 
-            } else if ("remove".equals(ui[0])) {
+            } else if ("remove".equalsIgnoreCase(option)) {
                 if (checkListIsNotEmpty("subject", grade.getSubjects())){
                     Subject subject = Form.switchSubject(grade);
                     System.out.print("Are you sure about that? (all activities of this subject will be deleted) [yes/no]: ");
@@ -84,12 +83,12 @@ public class Main {
                     }
                 }
 
-            } else if ("update".equals(ui[0])) {
+            } else if ("update".equalsIgnoreCase(option)) {
                 if (checkListIsNotEmpty("subject", grade.getSubjects())){
                     grade.update(Form.switchSubject(grade), Form.subjectForm());
                 }
 
-            } else if ("exit".equals(ui[0])) {
+            } else if ("exit".equalsIgnoreCase(option)) {
                 break;
             }else{
                 soutErrorInvalidValue();
@@ -100,28 +99,27 @@ public class Main {
     private static void kanbanScene(Kanban kanban, Grade grade){
         while (true) {
             Menus.menuAtiv();
-            String Opcao2 = new Scanner(System.in).nextLine();
-            String ui[] = Opcao2.split("  ");
+            String option = new Scanner(System.in).nextLine();
 
-            if ("add".equals(ui[0])) {
+            if ("add".equalsIgnoreCase(option)) {
                 kanban.add(Form.activityForm(grade));
 
-            } else if ("show".equals(ui[0])) {
+            } else if ("show".equalsIgnoreCase(option)) {
                 System.out.print(kanban);
 
-            } else if ("remove".equals(ui[0])) {
+            } else if ("remove".equalsIgnoreCase(option)) {
                 if (checkListIsNotEmpty("activity", kanban.getActivies())){
                     kanban.remove(Form.switchActivity(kanban));
                 }
 
-            } else if ("update".equals(ui[0])) {
+            } else if ("update".equalsIgnoreCase(option)) {
                 if (checkListIsNotEmpty("activity", kanban.getActivies())){
                     kanban.update(Form.switchActivity(kanban), Form.activityForm(grade));
                 }
 
-            } else if ("kanban".equals(ui[0])) {
+            } else if ("kanban".equalsIgnoreCase(option)) {
                 kanbanActionsScene(kanban);
-            } else if ("exit".equals(ui[0])) {
+            } else if ("exit".equalsIgnoreCase(option)) {
                 break;
             }else{
                 soutErrorInvalidValue();
