@@ -24,7 +24,7 @@ O sistema tem como objetivo auxiliar no planejamento escolar. Realizando funçõ
 ## :white_check_mark:Rodar aplicação
 
 ## :white_check_mark:UML
-![schoolarPlanning-final](https://user-images.githubusercontent.com/84944695/152524937-bdb512f8-d2ff-4d9a-958a-94f4f31fb593.png)
+![schoolarPlanning-final-final](https://user-images.githubusercontent.com/84944695/152566037-afcfe393-20cf-4ac3-884b-aac33159302c.png)
 
 ## :white_check_mark:Como usar
 ### Entrar comandos
