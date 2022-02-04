@@ -22,6 +22,7 @@ O sistema tem como objetivo auxiliar no planejamento escolar. Realizando funçõ
 * Kit de desenvolvimento java (recomenda-se o 15).
 
 ## :white_check_mark:Rodar aplicação
+* baixe o repositório
 
 ## :white_check_mark:UML
 ![schoolarPlanning-final-final](https://user-images.githubusercontent.com/84944695/152566037-afcfe393-20cf-4ac3-884b-aac33159302c.png)
