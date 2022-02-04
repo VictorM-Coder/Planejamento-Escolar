@@ -211,7 +211,7 @@ public class Form {
         Scanner input = new Scanner(System.in);
 
         do {
-            list.add(scanRequiredField("name participant"));
+            list.add(scanRequiredField("participant name: "));
 
             System.out.print("continue?[no / enter anything to continue]: ");
             String flag = input.nextLine();
