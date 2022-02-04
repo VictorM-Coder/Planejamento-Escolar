@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="planejamento-escolar:jar">
+    <output-path>$USER_HOME$/Desktop/setup</output-path>
+    <root id="archive" name="base.jar">
+      <element id="module-output" name="base" />
+    </root>
+  </artifact>
+</component>

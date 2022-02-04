@@ -13,8 +13,8 @@ import java.util.List;
  * @author Higor Santiago
  */
 public class Serializer {
-    private static final String URL_FILE_ACTIVITIES = "data/ActivitiesList.ser";
-    private static final String URL_FILE_SUBJECTS = "data/SubjectsList.ser";
+    private static final String URL_FILE_ACTIVITIES = "ActivitiesList.ser";
+    private static final String URL_FILE_SUBJECTS = "SubjectsList.ser";
 
     /**
      * write a List of Activities
@@ -38,7 +38,9 @@ public class Serializer {
         try{
             return readList(URL_FILE_ACTIVITIES);
 
-        }catch (ClassNotFoundException | IOException exception){
+        }catch (FileNotFoundException exception){
+            System.out.println("no saved data");
+        }catch (IOException | ClassNotFoundException exception){
             System.out.println("error: " + exception);
             exception.printStackTrace();
         }
@@ -68,7 +70,9 @@ public class Serializer {
         try{
             return readList(URL_FILE_SUBJECTS);
 
-        }catch (ClassNotFoundException | IOException exception){
+        }catch (FileNotFoundException exception){
+            System.out.println("no saved data");
+        }catch (IOException | ClassNotFoundException exception){
             System.out.println("error: " + exception);
             exception.printStackTrace();
         }
@@ -108,3 +112,15 @@ public class Serializer {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
