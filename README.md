@@ -21,8 +21,18 @@ O sistema tem como objetivo auxiliar no planejamento escolar. Realizando funçõ
 ## :white_check_mark:Requisitos
 * Kit de desenvolvimento java (recomenda-se o 15).
 
-## :white_check_mark:Rodar aplicação
-* baixe o repositório
+## :white_check_mark:Rodar aplicação (windows)
+1. Baixe este repositório
+2. Separe o pasta [setup](https://github.com/VictorM-Coder/Planejamento-Escolar/tree/main/setup);
+3. Abra o prompt de comando como administrador
+4. Bigite *cd* e o endereço da pasta *setup* e dê enter
+5. Digite o comando: *java -jar base.jar*
+
+**EX.:** <br>
+![Capturar](https://user-images.githubusercontent.com/84944695/152575136-9ef489ce-684e-4563-ae94-865994e81e53.PNG) <br>
+
+Ao abrir pela primeira vez será exibida duas mensagens *no data saved*, isso ocorre pois ainda não há dados salvos. Logo após você fechar o programa serão criados dois novos arquivos na pasta *setup* onde serão armazenados os dados cadastrados NÃO OS APAGUE, ou perderá as informações que adicionou. <br>
+![image](https://user-images.githubusercontent.com/84944695/152575766-4aba4333-5f13-47ec-8778-f16c1dd1ca95.png)
 
 ## :white_check_mark:UML
 ![schoolarPlanning-final-final](https://user-images.githubusercontent.com/84944695/152566037-afcfe393-20cf-4ac3-884b-aac33159302c.png)
