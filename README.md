@@ -23,6 +23,9 @@ O sistema tem como objetivo auxiliar no planejamento escolar. Realizando funçõ
 
 ## :white_check_mark:Rodar aplicação
 
+## :white_check_mark:UML
+![schoolarPlanning-final](https://user-images.githubusercontent.com/84944695/152524937-bdb512f8-d2ff-4d9a-958a-94f4f31fb593.png)
+
 ## :white_check_mark:Como usar
 ### Entrar comandos
 As entradas de texto são case insensitive. Deste modo, desde que os comandos seja escritos corretamente o tipo de caixa é indiferente.
