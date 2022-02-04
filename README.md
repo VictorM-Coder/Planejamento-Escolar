@@ -18,6 +18,9 @@ O sistema tem como objetivo auxiliar no planejamento escolar. Realizando funçõ
 * Visualização das matérias;
 * Salvamento de dados ao final do uso.
 
+## :white_check_mark:UML
+![schoolarPlanning-final-final](https://user-images.githubusercontent.com/84944695/152566037-afcfe393-20cf-4ac3-884b-aac33159302c.png)
+
 ## :white_check_mark:Requisitos
 * Kit de desenvolvimento java (recomenda-se o 15).
 
@@ -33,9 +36,6 @@ O sistema tem como objetivo auxiliar no planejamento escolar. Realizando funçõ
 
 Ao abrir pela primeira vez será exibida duas mensagens *no data saved*, isso ocorre pois ainda não há dados salvos. Logo após você fechar o programa serão criados dois novos arquivos na pasta *setup* onde serão armazenados os dados cadastrados NÃO OS APAGUE, ou perderá as informações que adicionou. <br>
 ![image](https://user-images.githubusercontent.com/84944695/152575766-4aba4333-5f13-47ec-8778-f16c1dd1ca95.png)
-
-## :white_check_mark:UML
-![schoolarPlanning-final-final](https://user-images.githubusercontent.com/84944695/152566037-afcfe393-20cf-4ac3-884b-aac33159302c.png)
 
 ## :white_check_mark:Como usar
 ### Entrar comandos
